@@ -5,18 +5,20 @@
  */
 async function fetchAdventures(url) {
     //const resp = await fetch(url);
+    const headers = { 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3MDY4MTI2NTA4NzFfZjdhNTcwNmYtODdiNC00MjZlLThlY2QtMzI1NTRiOWI0MzBjX3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJkZXYtY29uc29sZS1wcm9kIiwidXNlcl9pZCI6IkU4MEYxRDcwNjVCMTU4OEUwQTQ5NUU0MEAwYzczMWNmZjYxNGJiNzdjNDk1ZTQ1LmUiLCJzdGF0ZSI6IllGcW5wY0VtTFZTM2p2d25FYVg2Rkc3MSIsImFzIjoiaW1zLW5hMSIsImFhX2lkIjoiNTIyQzFCOUI2MDJGMDc3MTBBNDk1Q0M5QGFkb2JlLmNvbSIsImN0cCI6MCwiZmciOiJZRkhYUVFISFhQUDc0SFVLSE1RVjJYQUFPWSIsInNpZCI6IjE3MDY4MTAxMTA5NzdfMmM5NWJmN2EtMTM4ZS00OWZjLWE2NWQtOGQ3MTljOTQ4YTJiX3V3MiIsInJ0aWQiOiIxNzA2ODEyNjUwODcyX2NiODIxMDI1LTM0ZGUtNDIyYy04NzVlLTU0YjQ0MzZkNjAxZl91ZTEiLCJtb2kiOiJkZjVhNzM4ZCIsInBiYSI6Ik9SRyxNZWRTZWNOb0VWLExvd1NlYyIsInJ0ZWEiOiIxNzA4MDIyMjUwODcyIiwiZXhwaXJlc19pbiI6Ijg2NDAwMDAwIiwic2NvcGUiOiJBZG9iZUlELG9wZW5pZCxyZWFkX29yZ2FuaXphdGlvbnMsYWRkaXRpb25hbF9pbmZvLnByb2plY3RlZFByb2R1Y3RDb250ZXh0IiwiY3JlYXRlZF9hdCI6IjE3MDY4MTI2NTA4NzEifQ.ggRNxP209agu3SLDRTWxccQ0v9SKPzUAE7l21wnTPezLj2q0fRv9hwu8nvx8wHzvIJBHt_xgb-q1aDNaEgupHgmHQSIyFrXjtC6H3iH-6h9a-aRJtLOk90R8dUpGGUiX6ylqHHvomDVYJmRFTaEMTLoXRYcQsHEJHnJJp1T35IfQ3WzIoJbLDr_y2HEMWn34Gy5eaJJZI68IQz1ey6jZs77eDUJrw0q1HQHcsei6NLb0wfNZC-I5s1CUlJl2FD8HPUJk14hbeZzaumdajpX1_rL33asm4NpbUpnyrxtvVXuqS2suHVYMZA2MBpp-1Q4-LnbUxkunCdJnNXZDqwuAuA' };
     const resp = await fetch(url, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json',
-            "X-Authorization":'Bearer eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3MDY4MTI2NTA4NzFfZjdhNTcwNmYtODdiNC00MjZlLThlY2QtMzI1NTRiOWI0MzBjX3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJkZXYtY29uc29sZS1wcm9kIiwidXNlcl9pZCI6IkU4MEYxRDcwNjVCMTU4OEUwQTQ5NUU0MEAwYzczMWNmZjYxNGJiNzdjNDk1ZTQ1LmUiLCJzdGF0ZSI6IllGcW5wY0VtTFZTM2p2d25FYVg2Rkc3MSIsImFzIjoiaW1zLW5hMSIsImFhX2lkIjoiNTIyQzFCOUI2MDJGMDc3MTBBNDk1Q0M5QGFkb2JlLmNvbSIsImN0cCI6MCwiZmciOiJZRkhYUVFISFhQUDc0SFVLSE1RVjJYQUFPWSIsInNpZCI6IjE3MDY4MTAxMTA5NzdfMmM5NWJmN2EtMTM4ZS00OWZjLWE2NWQtOGQ3MTljOTQ4YTJiX3V3MiIsInJ0aWQiOiIxNzA2ODEyNjUwODcyX2NiODIxMDI1LTM0ZGUtNDIyYy04NzVlLTU0YjQ0MzZkNjAxZl91ZTEiLCJtb2kiOiJkZjVhNzM4ZCIsInBiYSI6Ik9SRyxNZWRTZWNOb0VWLExvd1NlYyIsInJ0ZWEiOiIxNzA4MDIyMjUwODcyIiwiZXhwaXJlc19pbiI6Ijg2NDAwMDAwIiwic2NvcGUiOiJBZG9iZUlELG9wZW5pZCxyZWFkX29yZ2FuaXphdGlvbnMsYWRkaXRpb25hbF9pbmZvLnByb2plY3RlZFByb2R1Y3RDb250ZXh0IiwiY3JlYXRlZF9hdCI6IjE3MDY4MTI2NTA4NzEifQ.ggRNxP209agu3SLDRTWxccQ0v9SKPzUAE7l21wnTPezLj2q0fRv9hwu8nvx8wHzvIJBHt_xgb-q1aDNaEgupHgmHQSIyFrXjtC6H3iH-6h9a-aRJtLOk90R8dUpGGUiX6ylqHHvomDVYJmRFTaEMTLoXRYcQsHEJHnJJp1T35IfQ3WzIoJbLDr_y2HEMWn34Gy5eaJJZI68IQz1ey6jZs77eDUJrw0q1HQHcsei6NLb0wfNZC-I5s1CUlJl2FD8HPUJk14hbeZzaumdajpX1_rL33asm4NpbUpnyrxtvVXuqS2suHVYMZA2MBpp-1Q4-LnbUxkunCdJnNXZDqwuAuA' // Here you can add your token
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
+        headers
+        //method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        //mode: 'cors', // no-cors, *cors, same-origin
+        //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        //credentials: 'same-origin', // include, *same-origin, omit
+        //headers: {
+        //    'Content-Type': 'application/json',
+        //    "X-Authorization":'Bearer eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3MDY4MTI2NTA4NzFfZjdhNTcwNmYtODdiNC00MjZlLThlY2QtMzI1NTRiOWI0MzBjX3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJkZXYtY29uc29sZS1wcm9kIiwidXNlcl9pZCI6IkU4MEYxRDcwNjVCMTU4OEUwQTQ5NUU0MEAwYzczMWNmZjYxNGJiNzdjNDk1ZTQ1LmUiLCJzdGF0ZSI6IllGcW5wY0VtTFZTM2p2d25FYVg2Rkc3MSIsImFzIjoiaW1zLW5hMSIsImFhX2lkIjoiNTIyQzFCOUI2MDJGMDc3MTBBNDk1Q0M5QGFkb2JlLmNvbSIsImN0cCI6MCwiZmciOiJZRkhYUVFISFhQUDc0SFVLSE1RVjJYQUFPWSIsInNpZCI6IjE3MDY4MTAxMTA5NzdfMmM5NWJmN2EtMTM4ZS00OWZjLWE2NWQtOGQ3MTljOTQ4YTJiX3V3MiIsInJ0aWQiOiIxNzA2ODEyNjUwODcyX2NiODIxMDI1LTM0ZGUtNDIyYy04NzVlLTU0YjQ0MzZkNjAxZl91ZTEiLCJtb2kiOiJkZjVhNzM4ZCIsInBiYSI6Ik9SRyxNZWRTZWNOb0VWLExvd1NlYyIsInJ0ZWEiOiIxNzA4MDIyMjUwODcyIiwiZXhwaXJlc19pbiI6Ijg2NDAwMDAwIiwic2NvcGUiOiJBZG9iZUlELG9wZW5pZCxyZWFkX29yZ2FuaXphdGlvbnMsYWRkaXRpb25hbF9pbmZvLnByb2plY3RlZFByb2R1Y3RDb250ZXh0IiwiY3JlYXRlZF9hdCI6IjE3MDY4MTI2NTA4NzEifQ.ggRNxP209agu3SLDRTWxccQ0v9SKPzUAE7l21wnTPezLj2q0fRv9hwu8nvx8wHzvIJBHt_xgb-q1aDNaEgupHgmHQSIyFrXjtC6H3iH-6h9a-aRJtLOk90R8dUpGGUiX6ylqHHvomDVYJmRFTaEMTLoXRYcQsHEJHnJJp1T35IfQ3WzIoJbLDr_y2HEMWn34Gy5eaJJZI68IQz1ey6jZs77eDUJrw0q1HQHcsei6NLb0wfNZC-I5s1CUlJl2FD8HPUJk14hbeZzaumdajpX1_rL33asm4NpbUpnyrxtvVXuqS2suHVYMZA2MBpp-1Q4-LnbUxkunCdJnNXZDqwuAuA' // Here you can add your token
+        //},
+        //redirect: 'follow', // manual, *follow, error
+        //referrerPolicy: 'no-referrer' // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        //body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
     if (resp.ok) {
       return await resp.json();
