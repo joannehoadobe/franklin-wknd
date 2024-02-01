@@ -43,6 +43,10 @@ async function fetchAdventures(url) {
         $li.setAttribute('itemid', 'urn:aemconnection:' + adventure['_path'] + '/jcr:content/data/master');
         $li.setAttribute('itemtype', 'reference');
         $li.setAttribute('itemfilter', 'cf');
+        // new attributes to support UE
+        $li.setAttribute('data-aue-resource', 'urn:aemconnection:' + adventure['_path'] + '/jcr:content/data/master');
+        $li.setAttribute('data-aue-type', 'reference');
+        $li.setAttribute('data-aue-filter', 'cf');
   
         // Article
         const $article = document.createElement('article');
@@ -62,8 +66,8 @@ async function fetchAdventures(url) {
         $title.setAttribute('itemprop', 'title');
         $title.setAttribute('itemtype', 'text');
         // new attributes to support UE
-        $title.setAttribute('aue-prop', 'title');
-        $title.setAttribute('aue-type', 'text');
+        $title.setAttribute('data-aue-prop', 'title');
+        $title.setAttribute('data-aue-type', 'text');
         $title.textContent = adventure.title;
         $article.appendChild($title);
   
