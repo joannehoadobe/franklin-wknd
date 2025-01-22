@@ -10,7 +10,7 @@
     },
     {
       "id": "asset-library",
-      "title": "AEM Assets",
+      "title": "AEM Assets Library",
       "environments": [
           "edit"
       ],
