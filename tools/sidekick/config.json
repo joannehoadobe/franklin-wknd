@@ -10,11 +10,11 @@
     },
     {
       "id": "asset-library",
-      "title": "AEM Assets Library",
+      "title": "AEM Assets Int",
       "environments": [
           "edit"
       ],
-      "url": "https://experience.adobe.com/solutions/CQ-helix-assets-addon/static-assets/resources/asset-selector.html?extConfigUrl=https://245265-extensionconfig.adobeioruntime.net/api/v1/web/extension-config/extension-config",
+      "url": "https://experience.adobe.com/solutions/CQ-helix-assets-addon/static-assets/resources/asset-selector.html?extConfigUrl-invalid=https://245265-extensionconfig.adobeioruntime.net/api/v1/web/extension-config/extension-config",
       "isPalette": true,
       "includePaths": [
           "**.docx**"
